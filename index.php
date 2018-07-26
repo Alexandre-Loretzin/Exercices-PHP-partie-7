@@ -7,26 +7,30 @@
 <body>
     
 <?php
-$extension = [".pdf"];
+    if (isset($_POST["nom2"]) AND isset($_POST["prenom2"])){
+        echo "Bonjour ".$_POST["sexe"]." ".$_POST["nom2"]." ".$_POST["prenom2"]."<br>".$_POST["upload"];
+        $verif = $_POST["upload"];
+        $extension = pathinfo($verif, PATHINFO_EXTENSION);
 
-if (isset($_POST["nom2"]) AND isset($_POST["prenom2"]) AND (isset($_FILES["upload"]) AND in_array($extension)){
-    echo "Bonjour ".$_POST["sexe"]." ".$_POST["nom2"]." ".$_POST["prenom2"]."<br>".$_FILES["upload"]["name"].".".["type"];        
-} else {
-    echo "<form action=index.php method=post>
-    <select name=sexe  >
-        <option >Mr</option>
-        <option >Mme</option>            
-     </select>
-    <input type=text name=nom2 placeholder=Entrer votre nom >
-    <input type=text name=prenom2 placeholder=Entrer votre prenom >
-     <input type=file name=upload>
-     <input type=submit value=Valider >       
-</form>";
-}
-
-
-
+            if ($extension === "pdf"){
+                echo "  Fichier PDF valide";
+            } else {
+                echo "  Fichier invalide";
+            }         
+    } else { 
 ?>
+     <form action="index.php" method="post">
+        <select name="sexe"  >
+        <option >Mr</option>
+        <option >Mme</option>               
+        </select>
+        <input type="text" name="nom2" placeholder="Entrer votre nom" >
+        <input type="text" name="prenom2" placeholder="Entrer votre prenom" >
+        <input type="file" name="upload">
+        <input type="submit" value="Valider" >       
+    </form>
+<?php
+}?>
 
 </body>
 </html>
