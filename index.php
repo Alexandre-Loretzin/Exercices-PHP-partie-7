@@ -24,9 +24,9 @@
         <option >Mr</option>
         <option >Mme</option>               
         </select>
-        <input type="text" name="nom2" placeholder="Entrer votre nom" >
-        <input type="text" name="prenom2" placeholder="Entrer votre prenom" >
-        <input type="file" name="upload">
+        <input type="text" name="nom2" placeholder="Entrer votre nom" required>
+        <input type="text" name="prenom2" placeholder="Entrer votre prenom" required>
+        <input type="file" name="upload" required>
         <input type="submit" value="Valider" >       
     </form>
 <?php
