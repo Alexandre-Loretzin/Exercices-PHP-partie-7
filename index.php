@@ -8,7 +8,7 @@
     
 <?php
 if (isset($_POST["nom2"]) AND isset($_POST["prenom2"])){
-    echo "Bonjour ".$_POST["sexe"]." ".$_POST["nom2"]." ".$_POST["prenom2"];        
+    echo "Bonjour ".$_POST["sexe"]." ".$_POST["nom2"]." ".$_POST["prenom2"] ;        
 } else {
     echo "<form action=index.php method=post>
     <select name=sexe  >
@@ -22,10 +22,9 @@ if (isset($_POST["nom2"]) AND isset($_POST["prenom2"])){
 </form>";
 }
 
-$extension = ["pdf"];
-$verif = strrchr($_FILES["upload"]["name"],".");
+$extension = [".pdf"];
 
-if (in_array($verif,$extension)){
+if  (isset($_FILES["upload"]) AND in_array($extension)){
     echo $_FILES["upload"]["name"].".".["type"];
 } else {
     echo "Choisir un fichier PDF";
